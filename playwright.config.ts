@@ -4,9 +4,10 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from 'dotenv';
+dotenv.config({
+  path : './env-files/.QA.env'
+});
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -30,23 +31,41 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot : 'only-on-failure',
+    video : 'retain-on-failure'
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      name : 'Global_SetUp',
+      testMatch : 'global-set-up.ts'
+    },
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      dependencies : ['Global_SetUp'],
+      use: { 
+        storageState : './Auth-files/demoWebShop.json',
+        ...devices['Desktop Chrome'] 
+      },
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      dependencies : ['Global_SetUp'],
+      use: { 
+        storageState : './Auth-files/demoWebShop.json',
+        ...devices['Desktop Firefox'] 
+      },
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      dependencies : ['Global_SetUp'],
+      use: { 
+        storageState : './Auth-files/demoWebShop.json',
+        ...devices['Desktop Safari'] 
+      },
     },
 
     /* Test against mobile viewports. */
