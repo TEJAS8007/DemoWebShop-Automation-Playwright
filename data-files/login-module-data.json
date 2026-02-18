@@ -1,0 +1,8 @@
+{
+    "title" : "Demo Web Shop",
+    "Invalid_UserName" : "QQQQ",
+    "Invalid_Password" : "qqqq",
+    "error_msg" : "Please enter a valid email address.",
+    "Login_error_msg" : "Login was unsuccessful. Please correct the errors and try again.",
+    "Invalid_username_error_msg" : "Please enter a valid email address."
+}
