@@ -105,12 +105,18 @@ export class BooksPage {
 
         await this.bookPageLink.click();
 
+        const expectedOption : string[] = [
+            '4',
+            '8',
+            '12'
+        ];
         const displayCount : number = await this.displayDropdown.count();
 
         for(let a=0;a<displayCount;a++) {
 
             const displaytext : string | null = await this.displayDropdown.nth(a).textContent();
-            console.log(displaytext);
+
+            await expect(displaytext).toBe(expectedOption[a]);
         }
     }
  } 
