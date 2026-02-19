@@ -56,3 +56,14 @@ test('Verify sort by DropDown test',{
 
     await booksPage.verifySortByDropdown();
 });
+
+test('Display DropDown Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test case',
+        description : 'Verifying Books Page Display dropDown'
+    }
+},async({gotoUrl,booksPage,logOut})=> {
+
+    await booksPage.verifydisplayDropdown();
+});
