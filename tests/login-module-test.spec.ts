@@ -21,7 +21,7 @@ test('Login for valid User',{
     const ps : string | undefined = process.env.PASSWORD!;
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.title);
+    await loginPage.verifyApplicationTitle(loginData.login_title);
     await loginPage.loginIntoApplication(un,ps);
 });
 
@@ -34,7 +34,7 @@ test('Login for Invalid user',{
 },async({loginPage,page,logOut})=> {
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.title);
+    await loginPage.verifyApplicationTitle(loginData.login_title);
     await loginPage.loginIntoApplication(loginData.Invalid_UserName,loginData.Invalid_Password);
 
     await expect(loginPage.errorMsg).toHaveText(loginData.error_msg);
@@ -51,7 +51,7 @@ test('Login with invalid password',{
     const un : string | undefined = process.env.USERNAMES!;
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.title);
+    await loginPage.verifyApplicationTitle(loginData.login_title);
     await loginPage.loginIntoApplication(un,loginData.Invalid_Password);
 
     await expect(loginPage.invalidLoginErrorMsg).toHaveText(loginData.Login_error_msg);
@@ -69,7 +69,7 @@ test('Login with Invalid username',{
     const ps : string | undefined = process.env.PASSWORD!;
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.title);
+    await loginPage.verifyApplicationTitle(loginData.login_title);
     await loginPage.loginIntoApplication(loginData.Invalid_UserName,ps);
 
     await expect(loginPage.invalidUsernameErrorMsg).toHaveText(loginData.Invalid_username_error_msg);

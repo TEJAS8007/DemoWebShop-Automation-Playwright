@@ -32,6 +32,7 @@ export class CartPage {
      */
     async addProductToCart(bName:string,sbPrice:string,tPrice:string) {
         // opening booksPage
+        await this.bookPageLink.waitFor({state:'visible'});
         await this.bookPageLink.click();
 
         // Adding product to Cart
@@ -51,7 +52,9 @@ export class CartPage {
         await expect(totalPrice).toBe(tPrice);
 
         // Removing product from Cart 
+        await this.removeCheckbox.waitFor({state:'visible'});
         await this.removeCheckbox.check();
+        await this.updateCartButton.waitFor({state:'visible'});
         await this.updateCartButton.click();
     }
 }

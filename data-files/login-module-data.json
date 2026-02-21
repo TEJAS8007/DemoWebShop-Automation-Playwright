@@ -1,5 +1,6 @@
 {
-    "title" : "Demo Web Shop",
+    "title" : "Demo Web Shop. Login",
+    "login_title" : "Demo Web Shop",
     "Invalid_UserName" : "QQQQ",
     "Invalid_Password" : "qqqq",
     "error_msg" : "Please enter a valid email address.",

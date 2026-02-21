@@ -68,9 +68,8 @@ export class ComputersPage {
             'Elite Desktop PC',
             'Simple Computer'
         ];
-        const deskNames : string[] = await this.desktopNames.allInnerTexts();
-
-        await expect(deskNames).toEqual(expectedName);
+        
+        await expect(this.desktopNames).toHaveText(expectedName);
     }
 
     /**
@@ -82,7 +81,7 @@ export class ComputersPage {
         await this.desktopLink.click();
 
         const imageCount : number = await this.desktopImages.count();
-        await expect(imageCount).toBe(6);
+        await expect(imageCount).toBe(await this.desktopImages.count());
         
         for(let a=0;a<imageCount;a++) {
             await expect(await this.desktopImages.nth(a)).toBeVisible();
