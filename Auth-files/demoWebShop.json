@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "ARRAffinity",
-      "value": "3922f25c3426dde05d90ef83378f5883f93aa6fcbc6cfe7b8532f4fe8e529609",
+      "value": "212ba0ee1949ea237f02bb35ddd616007543cfb9fd23923706a56b23f47776a6",
       "domain": ".demowebshop.tricentis.com",
       "path": "/",
       "expires": -1,
@@ -12,7 +12,7 @@
     },
     {
       "name": "ARRAffinitySameSite",
-      "value": "3922f25c3426dde05d90ef83378f5883f93aa6fcbc6cfe7b8532f4fe8e529609",
+      "value": "212ba0ee1949ea237f02bb35ddd616007543cfb9fd23923706a56b23f47776a6",
       "domain": ".demowebshop.tricentis.com",
       "path": "/",
       "expires": -1,
@@ -22,10 +22,10 @@
     },
     {
       "name": "__utma",
-      "value": "78382081.1728624735.1771507887.1771507887.1771507887.1",
+      "value": "78382081.257177480.1771682033.1771682033.1771682033.1",
       "domain": ".demowebshop.tricentis.com",
       "path": "/",
-      "expires": 1806067889.698808,
+      "expires": 1806242038.604557,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -42,10 +42,10 @@
     },
     {
       "name": "__utmz",
-      "value": "78382081.1771507887.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)",
+      "value": "78382081.1771682033.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)",
       "domain": ".demowebshop.tricentis.com",
       "path": "/",
-      "expires": 1787275889,
+      "expires": 1787450038,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -55,37 +55,57 @@
       "value": "1",
       "domain": ".demowebshop.tricentis.com",
       "path": "/",
-      "expires": 1771508487,
+      "expires": 1771682633,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
-      "name": "NOPCOMMERCE.AUTH",
-      "value": "332C18FEEB1F1FA7BAB24A5C178E60AE7AC3A7938CDA6A0B0162F2F4AD36B65358D21F93D6B6EA0CB0B6F7F82CA2712BE5E6AC37EC508A00B7CD9A4B5B281B33D8C77F81D415BE9EA1FBFABDE42BFF69C443A9BF5F1C100405553027402CD81BC94E8FA559CB472FED4FB9A070397EB602D933D33D35D31DEC0D63D5B79ACC182637F0FB2CE901C8685C35E9DCA13985",
+      "name": "__RequestVerificationToken",
+      "value": "YteYiF2j5CsDwobSiMhL3o61_H9ZtWRoAk-YgRSStO5NVk7MHFHuVeloejEh2jjXX36nEI32Es7WVe6zBPcT-T2nvu-JCMxf1bn0QkEf9iU1",
       "domain": "demowebshop.tricentis.com",
       "path": "/",
-      "expires": 1774099889.139028,
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ASP.NET_SessionId",
+      "value": "duiw0l33fblserd32mmwiyqi",
+      "domain": "demowebshop.tricentis.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "NOPCOMMERCE.AUTH",
+      "value": "E975FCA1181586AE66F11780DB202490DB3299D4CB0FB36CFAE70F1A774C0037F764227473D855F7BED4B59F4CF65BCD6E817392DCA28501AF23372B3AB8C9DCA52F4CDA9DF871EDE99719C66DB7A160D11843A561526EA1CCD2782B4480CA80FE86EC530E689992D45D31D267DFD74A5796621F581360647161A63DD61729E12C4A4BFEC40787AB224E4795B59CD938EEFB177D61197896D40FE0D1A1E4BF437DADA50DD126F259F35158D16FE3F50FE66C9300EF807443C25798118B5709272237FBE4362D2D87943DE2A385C490AC",
+      "domain": "demowebshop.tricentis.com",
+      "path": "/",
+      "expires": 1774274038.115078,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "Nop.customer",
-      "value": "7e533eea-ab97-4d78-baa6-e0c615d8602b",
+      "value": "85a4b8e2-04a4-43be-9f38-1bd79a2d91f9",
       "domain": "demowebshop.tricentis.com",
       "path": "/",
-      "expires": 1803043889.577366,
+      "expires": 1803218038.51454,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "__utmb",
-      "value": "78382081.3.10.1771507887",
+      "value": "78382081.7.10.1771682033",
       "domain": ".demowebshop.tricentis.com",
       "path": "/",
-      "expires": 1771509689,
+      "expires": 1771683838,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
