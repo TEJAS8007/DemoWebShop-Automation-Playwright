@@ -14,6 +14,14 @@ export class ElectronisPage {
     readonly cameraSortByDropdown : Locator;
     readonly cameraDisplayDropDown : Locator;
 
+    //cellPhone Module Locator
+    readonly cellPhoneLink : Locator;
+    readonly cellPhoneNames : Locator;
+    readonly cellPhoneImages : Locator;
+    readonly cellPhonePrices : Locator;
+    readonly cellPhoneSortByDropdown : Locator;
+    readonly cellPhoneDisplayDropDown : Locator;
+
     constructor(page:Page) {
         this.page=page;
 
@@ -26,11 +34,22 @@ export class ElectronisPage {
         this.cameraPrices = page.locator("[class='price actual-price']");
         this.cameraSortByDropdown = page.locator('#products-orderby option');
         this.cameraDisplayDropDown = page.locator('#products-pagesize option');
+
+        //cellPhone module Locator..
+        this.cellPhoneLink = page.locator("//*[@class='top-menu']/li[3]//ul//a[@href='/cell-phones']");
+        this.cellPhoneNames = page.locator(".product-title");
+        this.cellPhoneImages = page.locator(".picture img");
+        this.cellPhonePrices = page.locator("[class='price actual-price']");
+        this.cellPhoneSortByDropdown = page.locator('#products-orderby option');
+        this.cellPhoneDisplayDropDown = page.locator('#products-pagesize option');
+
     }
 
-    async verifyCameraPageTitle() {
+    async verifyCameraPageTitle(title:string) {
         await this.electronicsPageLink.hover();
         await this.cameraLink.click();
+
+        await expect(this.page).toHaveTitle(title);
     }
 
     async verifyCameraCount() {
@@ -107,5 +126,78 @@ export class ElectronisPage {
         const actualOption : string[] = await this.cameraDisplayDropDown.allInnerTexts();
 
         await expect(actualOption).toEqual(expectedOption);
+    }
+
+    async verifyCellPhonePageTitle(title:string) {
+        await this.electronicsPageLink.hover();
+        await this.cellPhoneLink.click();
+        
+        await expect(this.page).toHaveTitle(title);
+    }
+
+    async verifyCellPhoneCount() {
+        await this.electronicsPageLink.hover();
+        await this.cellPhoneLink.click();
+
+        await expect(await this.cellPhoneNames.count()).toBe(3);
+    }
+
+    async verifycellPhoneNames() {
+        await this.electronicsPageLink.hover();
+        await this.cellPhoneLink.click();
+
+        const expectedBookNames : string[] = [
+            'Smartphone',
+            'Used phone',
+            'Phone Cover'
+        ];
+
+        await expect(this.cellPhoneNames).toHaveText(expectedBookNames);
+    }
+
+    async verifycellPhonePrices() {
+
+        await this.electronicsPageLink.hover();
+        await this.cellPhoneLink.click();
+
+        const expectedBooksPrices = [
+            '100.00',
+            '5.00',
+            '10.00'
+        ];
+
+        await expect(this.cellPhonePrices).toHaveText(expectedBooksPrices);
+
+    }
+
+    async verifyCellPhoneSortByDropdown() {
+
+        await this.electronicsPageLink.hover();
+        await this.cellPhoneLink.click();
+
+        const expectedOptions : string[] = [
+            'Position',
+            'Name: A to Z',
+            'Name: Z to A',
+            'Price: Low to High',
+            'Price: High to Low',
+            'Created on'
+        ];
+        
+        await expect(this.cellPhoneSortByDropdown).toHaveText(expectedOptions);
+    }
+
+    async verifyCellPhonedisplayDropdown() {
+
+        await this.electronicsPageLink.hover();
+        await this.cameraLink.click();
+
+        const expectedOption : string[] = [
+            '4',
+            '8',
+            '12'
+        ];
+      
+        await expect(this.cellPhoneDisplayDropDown).toHaveText(expectedOption);
     }
 }
