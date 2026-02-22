@@ -1,4 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
+import electrData from '../data-files/electronics-module-data.json';
 
 test('Electronics Camera page Title Test',{
     tag : ['@UI','@reg'],
@@ -8,7 +9,7 @@ test('Electronics Camera page Title Test',{
     }
 },async({gotoUrl,ectrPage,logOut}) => {
 
-    await ectrPage.verifyCameraPageTitle();
+    await ectrPage.verifyCameraPageTitle(electrData.title_camera);
 });
 
 test('Electronics Camera page product count Test',{
@@ -64,4 +65,70 @@ test('Electronics Camera page product display Dropdown Test',{
 },async({gotoUrl,ectrPage,logOut}) => {
 
     await ectrPage.verifydisplayDropdown();
+});
+
+test('Electronics cellPhone page Title Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test case',
+        description : 'Verify Electronics cellPhone page title'
+    }
+},async({gotoUrl,ectrPage,logOut}) => {
+
+    await ectrPage.verifyCellPhonePageTitle(electrData.title_cellPhone);
+});
+
+test('Electronics Cell Phone page product count Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test Case',
+        description : 'Verify Electronics Cell Phone page product count'
+    }
+},async({gotoUrl,ectrPage,logOut}) => {
+
+    await ectrPage.verifyCellPhoneCount();
+});
+
+test('Electronics Cell Phone page product names Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test Case',
+        description : 'Verify Electronics Cell Phone page product names'
+    }
+},async({gotoUrl,ectrPage,logOut}) => {
+
+    await ectrPage.verifycellPhoneNames();
+});
+
+test('Electronics Cell Phone page product prices Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test Case',
+        description : 'Verify Electronics Cell Phone page product prices'
+    }
+},async({gotoUrl,ectrPage,logOut}) => {
+
+    await ectrPage.verifycellPhonePrices();
+});
+
+test('Electronics Cell Phone page product sortBy Dropdown Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test Case',
+        description : 'Verify Electronics Cell Phone page product sortByDropDown'
+    }
+},async({gotoUrl,ectrPage,logOut}) => {
+
+    await ectrPage.verifyCellPhoneSortByDropdown();
+});
+
+test('Electronics Cell Phone page product display Dropdown Test',{
+    tag : ['@UI','@reg'],
+    annotation : {
+        type : 'Test Case',
+        description : 'Verify Electronics Cell Phone page product display DropDown'
+    }
+},async({gotoUrl,ectrPage,logOut}) => {
+
+    await ectrPage.verifyCellPhonedisplayDropdown();
 });
