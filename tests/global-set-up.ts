@@ -22,4 +22,5 @@ test('global setup for login',async({page,loginPage,registerPage})=> {
     await expect(loginPage.loginUsername).toHaveText(credentialManager.email);
 
     await page.context().storageState({path:'./Auth-files/demoWebShop.json'});
-})
+    
+});

@@ -62,8 +62,8 @@ export class RegisterPage {
         //await expect(this.successMessage).toHaveText('Your registration completed');
 
         return {
-            email: dynamicEmail,
-            password: pass
-        };
+            email : dynamicEmail,
+            password : pass
+        }
     }
 }

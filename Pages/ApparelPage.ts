@@ -25,18 +25,27 @@ export class ApparelPage {
         this.apparelDisplayDropDown = page.locator('#products-pagesize option');
     }
 
-    async verifyApparelPageTitle() {
+    /**
+     * verufying apparel page title 
+     * @param title 
+     */
+    async verifyApparelPageTitle(title:string) {
         await this.apparelModuleLink.click();
-        console.log(await this.page.title()); 
-        //await expect(this.page).toHaveTitle(title);
+        await expect(this.page).toHaveTitle(title);
     }
 
+    /**
+     * verifying apparel page product count
+     */
     async verifyApparelCount() {
         await this.apparelModuleLink.click();
 
         await expect(await this.apparelNames.count()).toBe(8);
     }
 
+    /**
+     * verifying apparel page product names
+     */
     async verifyApparelNames() {
         await this.apparelModuleLink.click();
         
@@ -57,7 +66,10 @@ export class ApparelPage {
         await expect(actualNames).toEqual(expectedBookNames);
     }
 
-    async verifyCameraPrices() {
+    /**
+     * verifying apparel page product prices
+     */
+    async verifyApparelPrices() {
 
         await this.apparelModuleLink.click();
         
@@ -77,6 +89,9 @@ export class ApparelPage {
         await expect(expectedPrices).toEqual(expectedBooksPrices);
     }
 
+    /**
+     * verifying apparel page sortBy dropdown
+     */
     async verifySortByDropdown() {
 
         await this.apparelModuleLink.click();
@@ -95,6 +110,9 @@ export class ApparelPage {
         await expect(actualOptions).toEqual(expectedOptions);
     }
 
+    /**
+     * verifying apparel page display dropdown
+     */
     async verifydisplayDropdown() {
 
         await this.apparelModuleLink.click();
