@@ -1,4 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
+import appData from '../data-files/aparel-module-data.json';
 
 test('apparel page Title test',{
     tag : ['@UI','@reg'],
@@ -8,7 +9,7 @@ test('apparel page Title test',{
     }
 },async({gotoUrl,appPage,logOut}) => {
 
-    await appPage.verifyApparelPageTitle();
+    await appPage.verifyApparelPageTitle(appData.title);
 });
 
 test('apparel page product count test',{
@@ -41,7 +42,7 @@ test('apparel page product prices test',{
     }
 },async({gotoUrl,appPage,logOut}) => {
 
-    await appPage.verifyCameraPrices();
+    await appPage.verifyApparelPrices();
 });
 
 test('apparel page product sortBy Dropdown test',{

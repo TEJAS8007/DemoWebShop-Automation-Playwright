@@ -21,7 +21,7 @@ export class SearchPage {
         this.searchStoreBox = page.locator("input#small-searchterms");
         this.searchButton = page.locator("input[value='Search']");
         this.productName = page.locator(".product-title");
-        this.productImage = page.locator(".picture img");
+        this.productImage = page.locator(".picture img").last();
         this.productPrice = page.locator("[class='price actual-price']");
         this.productSortByDropdown = page.locator('#products-orderby option');
         this.productDisplayDropDown = page.locator('#products-pagesize option');

@@ -12,6 +12,8 @@ export class CartPage {
     readonly removeCheckbox : Locator;
     readonly updateCartButton : Locator;
     readonly bookPageLink : Locator;
+    readonly termsConditions : Locator;
+    readonly checkoutButton : Locator;
     
     
     constructor(page:Page) {
@@ -25,6 +27,9 @@ export class CartPage {
         this.totalPrice = page.locator('.product-price').last();
         this.removeCheckbox = page.locator("[name='removefromcart']");
         this.updateCartButton = page.locator("[name='updatecart']");
+
+        this.termsConditions = page.locator('input#termsofservice');
+        this.checkoutButton = page.locator('button#checkout');
     }
 
     /**
@@ -56,5 +61,32 @@ export class CartPage {
         await this.removeCheckbox.check();
         await this.updateCartButton.waitFor({state:'visible'});
         await this.updateCartButton.click();
+    }
+
+    /**
+     * add product to cart for e2e module..
+     * @param pName 
+     * @param prodPrice 
+     */
+    async e2eAddtocartProduct(pName:string,prodPrice:string) {
+
+        await this.addToCartButton.click();
+        await this.shoppingCartLink.click();
+
+         // Verifying product name from cart Page
+        const productName : string | null = (await this.bookName.innerText()).trim();
+        await expect(productName).toBe(pName);
+
+        // verifying sub total price from cart page
+        const subPrice : string | null = (await this.subTotalPrice.innerText()).trim();
+        await expect(subPrice).toBe(prodPrice);
+
+        // verifying total price on Cart page
+        const totalPrice : string | null = (await this.totalPrice.innerText()).trim();
+        await expect(totalPrice).toBe(prodPrice);
+
+        //checkout on addToCart Page
+        await this.termsConditions.click();
+        await this.checkoutButton.click();
     }
 }
