@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import compData from '../data-files/computer-module-data.json';
+import compData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('Computer page product Names Test',{
     tag : ['@UI','@reg'],
@@ -64,7 +64,7 @@ test('NoteBook page product name Test',{
     }
 },async({gotoUrl,compPage,logOut}) => {
 
-    await compPage.verifyNoteBookName(compData.NotebookName);
+    await compPage.verifyNoteBookName(compData['computer-module'].NotebookName);
 });
 
 test('NoteBook page product Price Test',{
@@ -75,7 +75,7 @@ test('NoteBook page product Price Test',{
     }
 },async({gotoUrl,compPage,logOut}) => {
 
-    await compPage.verifyNoteBookPrice(compData.NoteBookPrice);
+    await compPage.verifyNoteBookPrice(compData['computer-module'].NoteBookPrice);
 });
 
 test('NoteBook page product image Test',{

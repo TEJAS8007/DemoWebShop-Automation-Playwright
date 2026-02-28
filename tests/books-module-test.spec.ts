@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import booksData from '../data-files/book-module-data.json';
+import booksData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('BooksPage Title Test',{
     tag : ['@UI','@reg'],
@@ -10,7 +10,7 @@ test('BooksPage Title Test',{
 },async({gotoUrl,booksPage,logOut})=> {
     
     // verifying Books Page title
-    await booksPage.verifyBooksPageTitle(booksData.title);
+    await booksPage.verifyBooksPageTitle(booksData['book-module'].title);
 });
 
 test('BooksPage Books count test',{

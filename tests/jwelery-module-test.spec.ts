@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import jweleryData from '../data-files/jwelery-module-data.json';
+import jweleryData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('jwelery page title Test',{
     tag : ['@UI','@reg'],
@@ -9,7 +9,7 @@ test('jwelery page title Test',{
     }
 },async({gotoUrl,jweleryPage,logOut}) => {
 
-    await jweleryPage.verifyJweleryPageTitle(jweleryData.titile);
+    await jweleryPage.verifyJweleryPageTitle(jweleryData['jwellery-module'].titile);
 });
 
 test('jwelery page product count Test',{

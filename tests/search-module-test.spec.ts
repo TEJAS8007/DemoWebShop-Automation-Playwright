@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import searchData from '../data-files/search-module-data.json';
+import searchData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('searchPage Title Test',{
     tag : ['@UI','@reg'],
@@ -9,7 +9,7 @@ test('searchPage Title Test',{
     }
 },async({gotoUrl,searchPage,logOut}) => {
 
-    await searchPage.verifySearchPageTitle(searchData.title);
+    await searchPage.verifySearchPageTitle(searchData['search-module'].title);
 });
 
 test('searchPage product search Test',{
@@ -21,8 +21,8 @@ test('searchPage product search Test',{
 },async({gotoUrl,searchPage,logOut}) => {
 
     await searchPage.verifyProductsearch(
-        searchData.productName,
-        searchData.price
+        searchData['search-module'].productName,
+        searchData['search-module'].price
     );
 });
 
@@ -34,7 +34,7 @@ test('searchPage sortBy Dropdown Test',{
     }
 },async({gotoUrl,searchPage,logOut}) => {
 
-    await searchPage.verifySortByDropdown(searchData.productName);
+    await searchPage.verifySortByDropdown(searchData['search-module'].productName);
 });
 
 test('searchPage display Dropdown Test',{
@@ -45,7 +45,7 @@ test('searchPage display Dropdown Test',{
     }
 },async({gotoUrl,searchPage,logOut}) => {
 
-    await searchPage.verifydisplayDropdown(searchData.productName);
+    await searchPage.verifydisplayDropdown(searchData['search-module'].productName);
 });
 
 test('searchPage advance product search Test',{
@@ -57,7 +57,7 @@ test('searchPage advance product search Test',{
 },async({gotoUrl,searchPage,logOut}) => {
 
     await searchPage.verifyAdvanceProductsearch(
-        searchData.productName,
-        searchData.price
+        searchData['search-module'].productName,
+        searchData['search-module'].price
     );
 });

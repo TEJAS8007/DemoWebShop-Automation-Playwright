@@ -9,6 +9,7 @@ import { ApparelPage } from '../Pages/ApparelPage';
 import { SearchPage } from '../Pages/SerchPage';
 import { JweleryPage } from '../Pages/JweleryPage';
 import { CheckoutPage } from '../Pages/CheckoutPage';
+import { OrderConfirmationPage } from '../Pages/OrderConfirmationPage';
 
 type myFixtureType = {
     loginPage : LoginPage;
@@ -21,6 +22,7 @@ type myFixtureType = {
     searchPage : SearchPage;
     jweleryPage : JweleryPage;
     checkOutPage : CheckoutPage;
+    orderPage : OrderConfirmationPage;
 }
 
 export const test = baseTest.extend<myFixtureType> ({
@@ -63,5 +65,9 @@ export const test = baseTest.extend<myFixtureType> ({
 
     checkOutPage : async({page},use) => {
         await use(new CheckoutPage(page));
+    },
+
+    orderPage : async({page},use) => {
+        await use(new OrderConfirmationPage(page));
     }
 })
