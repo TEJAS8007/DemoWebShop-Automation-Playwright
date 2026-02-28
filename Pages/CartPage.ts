@@ -14,7 +14,7 @@ export class CartPage {
     readonly bookPageLink : Locator;
     readonly termsConditions : Locator;
     readonly checkoutButton : Locator;
-    
+    readonly computerAddToCartButton : Locator;
     
     constructor(page:Page) {
         this.page=page;
@@ -30,11 +30,15 @@ export class CartPage {
 
         this.termsConditions = page.locator('input#termsofservice');
         this.checkoutButton = page.locator('button#checkout');
+        this.computerAddToCartButton = page.locator('input#add-to-cart-button-72');
     }
 
-    /**
-     * Performing product validation from cart page
-     */
+   /**
+    * Performing product validation from cart page
+    * @param bName 
+    * @param sbPrice 
+    * @param tPrice 
+    */
     async addProductToCart(bName:string,sbPrice:string,tPrice:string) {
         // opening booksPage
         await this.bookPageLink.waitFor({state:'visible'});
@@ -70,7 +74,34 @@ export class CartPage {
      */
     async e2eAddtocartProduct(pName:string,prodPrice:string) {
 
+        await expect(this.addToCartButton).toBeEnabled();
         await this.addToCartButton.click();
+
+        await expect(this.shoppingCartLink).toBeEnabled();
+        await this.shoppingCartLink.click();
+
+         // Verifying product name from cart Page
+        const productName : string | null = (await this.bookName.innerText()).trim();
+        await expect(productName).toBe(pName);
+
+        // verifying sub total price from cart page
+        const subPrice : string | null = (await this.subTotalPrice.innerText()).trim();
+        await expect(subPrice).toBe(prodPrice);
+
+        // verifying total price on Cart page
+        const totalPrice : string | null = (await this.totalPrice.innerText()).trim();
+        await expect(totalPrice).toBe(prodPrice);
+
+        //checkout on addToCart Page
+        await this.termsConditions.click();
+        await this.checkoutButton.click();
+    }
+
+    async e2eComputerAddtocartProduct(pName:string,prodPrice:string) {
+
+        await expect(this.addToCartButton).toBeEnabled();
+        await this.addToCartButton.click();
+        await expect(this.shoppingCartLink).toBeEnabled();
         await this.shoppingCartLink.click();
 
          // Verifying product name from cart Page

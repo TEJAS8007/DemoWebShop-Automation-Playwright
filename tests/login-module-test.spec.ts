@@ -1,6 +1,6 @@
 import { expect } from 'playwright/test';
 import {test} from '../Fixtures/hooks.fixture';
-import loginData from '../data-files/login-module-data.json';
+import loginData from '../data-files/ui-data-files/ui-module-data.json';
 
 test.use({
     storageState : {
@@ -21,7 +21,7 @@ test('Login for valid User',{
     const ps : string | undefined = process.env.PASSWORD!;
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.login_title);
+    await loginPage.verifyApplicationTitle(loginData['login-module'].login_title);
     await loginPage.loginIntoApplication(un,ps);
 });
 
@@ -34,10 +34,14 @@ test('Login for Invalid user',{
 },async({loginPage,page,logOut})=> {
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.login_title);
-    await loginPage.loginIntoApplication(loginData.Invalid_UserName,loginData.Invalid_Password);
+    await loginPage.verifyApplicationTitle(loginData['login-module'].login_title);
+    
+    await loginPage.loginIntoApplication(
+        loginData['login-module'].Invalid_UserName,
+        loginData['login-module'].Invalid_Password
+    );
 
-    await expect(loginPage.errorMsg).toHaveText(loginData.error_msg);
+    await expect(loginPage.errorMsg).toHaveText(loginData['login-module'].error_msg);
 });
 
 test('Login with invalid password',{
@@ -51,10 +55,10 @@ test('Login with invalid password',{
     const un : string | undefined = process.env.USERNAMES!;
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.login_title);
-    await loginPage.loginIntoApplication(un,loginData.Invalid_Password);
+    await loginPage.verifyApplicationTitle(loginData['login-module'].login_title);
+    await loginPage.loginIntoApplication(un,loginData['login-module'].Invalid_Password);
 
-    await expect(loginPage.invalidLoginErrorMsg).toHaveText(loginData.Login_error_msg);
+    await expect(loginPage.invalidLoginErrorMsg).toHaveText(loginData['login-module'].Login_error_msg);
 
 });
 
@@ -69,10 +73,10 @@ test('Login with Invalid username',{
     const ps : string | undefined = process.env.PASSWORD!;
 
     await loginPage.openApplication();
-    await loginPage.verifyApplicationTitle(loginData.login_title);
-    await loginPage.loginIntoApplication(loginData.Invalid_UserName,ps);
+    await loginPage.verifyApplicationTitle(loginData['login-module'].login_title);
+    await loginPage.loginIntoApplication(loginData['login-module'].Invalid_UserName,ps);
 
-    await expect(loginPage.invalidUsernameErrorMsg).toHaveText(loginData.Invalid_username_error_msg);
+    await expect(loginPage.invalidUsernameErrorMsg).toHaveText(loginData['login-module'].Invalid_username_error_msg);
 
 });
 
@@ -88,7 +92,7 @@ test('Login with blank username password',{
     await loginPage.loginLink.click();
     await loginPage.loginButton.click();
 
-    await expect(loginPage.invalidLoginErrorMsg).toHaveText(loginData.Login_error_msg);
+    await expect(loginPage.invalidLoginErrorMsg).toHaveText(loginData['login-module'].Login_error_msg);
 
 });
 

@@ -1,22 +1,21 @@
 import { expect } from 'playwright/test';
 import {test} from '../Fixtures/hooks.fixture';
-import registerData from '../data-files/register-module-data.json';
-import loginData from '../data-files/login-module-data.json';
+import globalData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('global setup for login',async({page,loginPage,registerPage})=> {
 
     await loginPage.openApplication();
 
     const credentialManager = await registerPage.registerUser(
-        registerData.first_Name,
-        registerData.last_Name,
-        registerData.password
+        globalData['register-module'].first_Name,
+        globalData['register-module'].last_Name,
+        globalData['register-module'].password
     );
 
     await registerPage.logOutLink.click();
     await loginPage.loginLink.click();
     
-    await loginPage.verifyApplicationTitle(loginData.title);
+    await loginPage.verifyApplicationTitle(globalData['login-module'].title);
     await loginPage.loginIntoApplication(credentialManager.email,credentialManager.password);
 
     await expect(loginPage.loginUsername).toHaveText(credentialManager.email);

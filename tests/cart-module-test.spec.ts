@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import cartData from '../data-files/cart-module-data.json';
+import cartData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('Product validation test',{
     tag : ['@UI','@reg'],
@@ -10,8 +10,8 @@ test('Product validation test',{
 },async({gotoUrl,cartPage,logOut}) => {
 
     await cartPage.addProductToCart(
-        cartData.book_Name,
-        cartData.sub_total_Price,
-        cartData.total_Price
+        cartData['cart-module'].book_Name,
+        cartData['cart-module'].sub_total_Price,
+        cartData['cart-module'].total_Price
     );
 });

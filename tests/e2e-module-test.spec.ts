@@ -1,11 +1,11 @@
 import {test} from '../Fixtures/hooks.fixture';
-import e2eData from '../data-files/e2e-module-data.json';
+import e2eData from '../data-files/ui-data-files/ui-module-data.json';
 
-test('end to end Test',{
-    tag : ['@UI','@reg'],
+test('end to end Laptop Test',{
+    tag : ['@UI','@e2e'],
     annotation : {
         type : 'Test Case',
-        description : 'Verifying end to end product purchase test.'
+        description : 'Verifying end to end Laptop product purchase test.'
     }
 },async(
     {
@@ -13,29 +13,38 @@ test('end to end Test',{
         searchPage,
         cartPage,
         checkOutPage,
+        orderPage,
         logOut
     }
 ) => {
 
     await searchPage.verifyProductsearch(
-        e2eData.product_name,
-        e2eData.price
+        e2eData['e2e-module'].Laptop.productName,
+        e2eData['e2e-module'].Laptop.price
     );
 
     await cartPage.e2eAddtocartProduct(
-        e2eData.product_name,
-        e2eData.price
+        e2eData['e2e-module'].Laptop.productName,
+        e2eData['e2e-module'].Laptop.price
     );
 
     await checkOutPage.addCustomerDetails(
-        e2eData.fname,
-        e2eData.lname,
-        e2eData.company,
-        e2eData.city,
-        e2eData.address1,
-        e2eData.address2,
-        e2eData.poCode,
-        e2eData.phoneNumber,
-        e2eData.faxNumber
+        e2eData['e2e-module'].customer.fname,
+        e2eData['e2e-module'].customer.lname,
+        e2eData['e2e-module'].customer.company,
+        e2eData['e2e-module'].customer.city,
+        e2eData['e2e-module'].customer.address1,
+        e2eData['e2e-module'].customer.address2,
+        e2eData['e2e-module'].customer.poCode,
+        e2eData['e2e-module'].customer.phoneNumber,
+        e2eData['e2e-module'].customer.faxNumber
     );
+
+    await orderPage.verifyOrderSummary(
+        e2eData['order-module'].productName,
+        e2eData['order-module'].price,
+        e2eData['order-module'].orderMsg
+    );
+
 });
+

@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import appData from '../data-files/aparel-module-data.json';
+import appData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('apparel page Title test',{
     tag : ['@UI','@reg'],
@@ -9,7 +9,7 @@ test('apparel page Title test',{
     }
 },async({gotoUrl,appPage,logOut}) => {
 
-    await appPage.verifyApparelPageTitle(appData.title);
+    await appPage.verifyApparelPageTitle(appData['apparel-module'].title);
 });
 
 test('apparel page product count test',{

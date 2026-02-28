@@ -1,5 +1,5 @@
 import {test} from '../Fixtures/hooks.fixture';
-import electrData from '../data-files/electronics-module-data.json';
+import electrData from '../data-files/ui-data-files/ui-module-data.json';
 
 test('Electronics Camera page Title Test',{
     tag : ['@UI','@reg'],
@@ -9,7 +9,7 @@ test('Electronics Camera page Title Test',{
     }
 },async({gotoUrl,ectrPage,logOut}) => {
 
-    await ectrPage.verifyCameraPageTitle(electrData.title_camera);
+    await ectrPage.verifyCameraPageTitle(electrData['electronics-module'].title_camera);
 });
 
 test('Electronics Camera page product count Test',{
@@ -75,7 +75,7 @@ test('Electronics cellPhone page Title Test',{
     }
 },async({gotoUrl,ectrPage,logOut}) => {
 
-    await ectrPage.verifyCellPhonePageTitle(electrData.title_cellPhone);
+    await ectrPage.verifyCellPhonePageTitle(electrData['electronics-module'].title_cellPhone);
 });
 
 test('Electronics Cell Phone page product count Test',{

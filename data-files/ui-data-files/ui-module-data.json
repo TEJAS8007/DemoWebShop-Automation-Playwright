@@ -1,0 +1,77 @@
+{
+    "book-module" : {
+        "title" : "Demo Web Shop. Books"
+    },
+
+    "apparel-module" : {
+        "title" : "Demo Web Shop. Apparel & Shoes"
+    },
+
+    "cart-module" : {
+        "book_Name" : "Computing and Internet",
+        "sub_total_Price" : "10.00",
+        "total_Price" : "10.00"
+    },
+
+    "computer-module" : {
+        "NotebookName" : "14.1-inch Laptop",
+        "NoteBookPrice" : "1590.00"
+    },
+
+    "e2e-module" : {
+        
+        "Laptop" : {
+            "productName" : "14.1-inch Laptop",
+            "price" : "1590.00"
+        },
+
+        "customer": {
+            "fname": "john",
+            "lname": "smith",
+            "company": "ABCD TECH",
+            "city": "New York",
+            "address1": "Street one",
+            "address2": "zero mile square",
+            "poCode": "0890",
+            "phoneNumber": "979871783",
+            "faxNumber": "1534633466"
+        }
+    },
+
+    "electronics-module" : {
+        "title_camera" : "Demo Web Shop. Camera, photo",
+        "title_cellPhone" : "Demo Web Shop. Cell phones"
+    },
+
+    "jwellery-module" : {
+        "titile" : "Demo Web Shop. Jewelry"
+    },
+
+    "login-module" : {
+        "title" : "Demo Web Shop. Login",
+        "login_title" : "Demo Web Shop",
+        "Invalid_UserName" : "QQQQ",
+        "Invalid_Password" : "qqqq",
+        "error_msg" : "Please enter a valid email address.",
+        "Login_error_msg" : "Login was unsuccessful. Please correct the errors and try again.",
+        "Invalid_username_error_msg" : "Please enter a valid email address."
+    },
+
+    "order-module" : {
+        "productName" : "14.1-inch Laptop",
+        "price" : "1590.00",
+        "orderMsg" : "Your order has been successfully processed!"
+    },
+
+    "register-module" : {
+        "first_Name" : "John",
+        "last_Name" : "David",
+        "password" : "test@123"
+    },
+
+    "search-module" : {
+        "productName" : "Digital SLR Camera 12.2 Mpixel",
+        "price" : "From 500.00",
+        "title" : "Demo Web Shop"
+    }
+}
